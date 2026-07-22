@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git 团队协作工作流：分支策略与冲突解决 &bull; GuyZeus's Blog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="no-sidebar">
+  <header class="site-header">
+    <a href="index.html" class="site-header__brand">GuyZeus's Blog</a>
+    <nav class="site-header__nav" aria-label="主导航">
+      <a href="index.html" class="site-header__link">Git 团队协作工作流：分支策略与冲突解决</a>
+    </nav>
+    <nav class="site-header__actions" aria-label="网站操作">
+      <button class="theme-toggle" id="themeToggle" title="切换主题"><span class="moon-icon">🌙</span><span class="sun-icon">☀️</span></button>
+    </nav>
+  </header>
+
+  <div class="layout">
+<main class="main-content">
+      <article class="article">
+        <a href="index.html" class="back-link">← 返回文章列表</a>
+        <header class="article__header">
+          <h1 class="article__title">Git 团队协作工作流：分支策略与冲突解决</h1>
+          <div class="article__meta"><span>📅 2026年5月12日</span><span>🏷️ Git, 协作</span><span>⏱️ 约 8 分钟阅读</span></div>
+        </header>
+        <div class="article__body">
+          <p>Git 是现代开发不可或缺的版本控制工具。本文介绍团队协作中最常用的分支策略与冲突解决方法。</p>
+          <h2>一、常见分支策略</h2>
+          <ul>
+            <li><strong>Git Flow：</strong>master + develop + feature + release + hotfix，适合有版本发布的软件</li>
+            <li><strong>GitHub Flow：</strong>只有 main + feature 分支，简单，适合持续部署</li>
+            <li><strong>GitLab Flow：</strong>在 GitHub Flow 基础上加入环境分支（如 pre-prod）</li>
+          </ul>
+          <h2>二、日常流程</h2>
+          <pre><code>git checkout -b feature/login
+git add .
+git commit -m "feat: 登录功能"
+git push -u origin feature/login</code></pre>
+          <h2>三、冲突解决</h2>
+          <p>合并冲突时，Git 会在文件中标记冲突区域：</p>
+          <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+你的代码
+=======
+对方代码
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-name</code></pre>
+          <p>手动编辑保留正确内容后，git add + git commit 即可。</p>
+          <h2>四、总结</h2>
+          <p>频繁 pull、小步提交、写好 commit message，能规避 80% 的协作烦恼。</p>
+        </div>
+        <footer class="article__footer">
+        <div class="article__nav">
+            <a href="springboot-restful-api.html">← 上一篇</a>
+            <a href="mysql-index-optimization.html">下一篇：MySQL 优化 →</a>
+          </div>
+        </footer>
+      </article>
+
+      <footer class="footer">
+        <span>&copy; 2026 GuyZeus</span>
+        <span>Powered by HTML &amp; CSS &amp; JS</span>
+      </footer>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

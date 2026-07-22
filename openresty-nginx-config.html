@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenResty 入门 &bull; GuyZeus's Blog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="no-sidebar">
+  <header class="site-header">
+    <a href="index.html" class="site-header__brand">GuyZeus's Blog</a>
+    <nav class="site-header__nav" aria-label="主导航">
+      <a href="index.html" class="site-header__link">OpenResty 入门：Nginx 配置与 Lua 脚本实战</a>
+    </nav>
+    <nav class="site-header__actions" aria-label="网站操作">
+      <button class="theme-toggle" id="themeToggle" title="切换主题"><span class="moon-icon">🌙</span><span class="sun-icon">☀️</span></button>
+    </nav>
+  </header>
+
+  <div class="layout">
+<main class="main-content">
+      <article class="article">
+        <a href="index.html" class="back-link">← 返回文章列表</a>
+        <header class="article__header">
+          <h1 class="article__title">OpenResty 入门：Nginx 配置与 Lua 脚本实战</h1>
+          <div class="article__meta"><span>📅 2026年7月8日</span><span>🏷️ OpenResty, Nginx</span><span>⏱️ 约 8 分钟阅读</span></div>
+        </header>
+        <div class="article__body">
+          <p>OpenResty 是一个基于 Nginx 与 LuaJIT 的高性能 Web 平台，它让你可以用 Lua 脚本在 Nginx 的各个处理阶段插入自定义逻辑，实现限流、鉴权、灰度发布等能力。</p>
+          <h2>一、OpenResty 是什么</h2>
+          <p>通俗地说，OpenResty = Nginx + LuaJIT + 一堆精心封装的 Lua 库。它把 Nginx 从一个「静态文件服务器 / 反向代理」升级成了「可编程的应用服务器」。</p>
+          <h2>二、安装</h2>
+          <pre><code># CentOS / Rocky
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://openresty.org/package/centos/openresty.repo
+sudo yum install -y openresty</code></pre>
+          <h2>三、第一个 Lua 脚本</h2>
+          <p>在 Nginx 配置中嵌入 Lua，返回当前时间：</p>
+          <pre><code>location /hello {
+    content_by_lua_block {
+        ngx.say("Hello from OpenResty! Time: ", ngx.localtime())
+    }
+}</code></pre>
+          <h2>四、实战：简单限流</h2>
+          <p>利用 <code>lua-resty-limit-traffic</code> 库实现按 IP 限流：</p>
+          <pre><code>lua_shared_dict my_limit_store 100m;
+
+location /api/ {
+    access_by_lua_block {
+        local limit = require "resty.limit.req"
+        local lim, err = limit.new("my_limit_store", 100, 50)
+        local delay, err = lim:incoming(ngx.var.binary_remote_addr, true)
+        if not delay then
+            ngx.exit(503)
+        end
+    }
+    proxy_pass http://backend;
+}</code></pre>
+          <h2>五、应用场景</h2>
+          <ul>
+            <li><strong>API 网关：</strong>统一鉴权、限流、日志</li>
+            <li><strong>灰度发布：</strong>按 Cookie 或 Header 分流</li>
+            <li><strong>动态路由：</strong>从 Redis 读取路由规则，无需 reload</li>
+            <li><strong>边缘计算：</strong>在 CDN 边缘节点做个性化逻辑</li>
+          </ul>
+          <h2>六、总结</h2>
+          <p>OpenResty 的学习曲线不陡，但威力巨大。对于需要高性能、低延迟动态逻辑的场景，它是比「Nginx + 后端服务」更优雅的方案。</p>
+        </div>
+        <footer class="article__footer">
+          <div class="article__nav">
+            <a href="docker-1panel-deploy.html">← 上一篇</a>
+            <a href="java-collections-deep-dive.html">下一篇：Java 集合 →</a>
+          </div>
+        </footer>
+      </article>
+
+      <footer class="footer">
+        <span>&copy; 2026 GuyZeus</span>
+        <span>Powered by HTML &amp; CSS &amp; JS</span>
+      </footer>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

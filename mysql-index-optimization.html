@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySQL 索引优化实战：从执行计划到慢查询排查 &bull; GuyZeus's Blog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="no-sidebar">
+  <header class="site-header">
+    <a href="index.html" class="site-header__brand">GuyZeus's Blog</a>
+    <nav class="site-header__nav" aria-label="主导航">
+      <a href="index.html" class="site-header__link">MySQL 索引优化实战：从执行计划到慢查询排查</a>
+    </nav>
+    <nav class="site-header__actions" aria-label="网站操作">
+      <button class="theme-toggle" id="themeToggle" title="切换主题"><span class="moon-icon">🌙</span><span class="sun-icon">☀️</span></button>
+    </nav>
+  </header>
+
+  <div class="layout">
+<main class="main-content">
+      <article class="article">
+        <a href="index.html" class="back-link">← 返回文章列表</a>
+        <header class="article__header">
+          <h1 class="article__title">MySQL 索引优化实战：从执行计划到慢查询排查</h1>
+          <div class="article__meta"><span>📅 2026年4月20日</span><span>🏷️ MySQL, 数据库</span><span>⏱️ 约 12 分钟阅读</span></div>
+        </header>
+        <div class="article__body">
+          <p>数据库性能优化是后端开发的核心技能。本文从 EXPLAIN 执行计划入手，讲解索引优化的实战方法。</p>
+          <h2>一、EXPLAIN 怎么看</h2>
+          <pre><code>EXPLAIN SELECT * FROM student WHERE name = '张三';</code></pre>
+          <p>重点关注 type（访问类型）、key（实际用到的索引）、rows（扫描行数）、Extra（额外信息）。</p>
+          <h2>二、索引类型</h2>
+          <ul>
+            <li><strong>普通索引：</strong>最常见的 B+Tree 索引</li>
+            <li><strong>唯一索引：</strong>列值必须唯一</li>
+            <li><strong>组合索引：</strong>多列联合，遵循最左前缀原则</li>
+            <li><strong>覆盖索引：</strong>查询字段都在索引中，无需回表，性能极佳</li>
+          </ul>
+          <h2>三、最左前缀原则</h2>
+          <p>组合索引 (a, b, c) 能命中 a、(a,b)、(a,b,c)，但不能跳过 a 直接查 b。</p>
+          <h2>四、慢查询排查</h2>
+          <pre><code>SET GLOBAL slow_query_log = 'ON';
+SET GLOBAL long_query_time = 1;</code></pre>
+          <h2>五、总结</h2>
+          <p>索引不是越多越好——它拖慢写入、占用空间。根据查询模式设计索引，用 EXPLAIN 验证，才是正确姿势。</p>
+        </div>
+        <footer class="article__footer">
+        <div class="article__nav">
+            <a href="git-team-collaboration.html">← 上一篇</a>
+            <a href="springboot-student-system.html">返回首篇 →</a>
+          </div>
+        </footer>
+      </article>
+
+      <footer class="footer">
+        <span>&copy; 2026 GuyZeus</span>
+        <span>Powered by HTML &amp; CSS &amp; JS</span>
+      </footer>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
