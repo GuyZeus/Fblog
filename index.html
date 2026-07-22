@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页 &bull; GuyZeus's Blog</title>
+  <meta name="description" content="GuyZeus 的个人技术博客 - 分享 Java、Spring Boot、前端、Docker 等技术文章">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='50' fill='%234263eb'/><text x='50' y='68' font-size='52' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial'>G</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="site-header__brand">GuyZeus's Blog</a>
+    <nav class="site-header__actions" aria-label="网站操作">
+      <button class="theme-toggle" id="themeToggle" title="切换主题" aria-label="切换明暗主题">
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="layout">
+    <!-- ===== 侧边栏 ===== -->
+    <aside class="sidebar" id="sidebar">
+      
+
+      <!-- 个人信息 -->
+      <div class="profile">
+        <div class="profile__avatar">GZ</div>
+        <h2 class="profile__name">GuyZeus</h2>
+        <p class="profile__location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          保定
+        </p>
+      </div>
+
+      <!-- 技能 -->
+      <section class="sidebar-section">
+        <h3 class="sidebar-section__title">技能</h3>
+
+        <div class="skill-group">
+          <p class="skill-group__label">编程语言</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+
+        
+      </section>
+
+      <!-- 教育 -->
+      <section class="sidebar-section">
+        <h3 class="sidebar-section__title">教育背景</h3>
+        <div class="education-card">
+          <a href="https://www.scc.edu.cn/" target="_blank" rel="noopener">
+            <div class="University">苏州百年职业学院</div>
+            <div class="education-card__school">软件技术专业</div>
+            <div class="education-card__degree">学生</div>
+            <div class="education-card__date">2025 - 至今</div>
+          </a>
+        </div>
+        <div class="education-card">
+          <a href="http://www.nuist.edu.cn/" target="_blank" rel="noopener">
+            <div class="University">南京信息工程大学</div>
+            <div class="education-card__school">软件工程专业</div>
+            <div class="education-card__degree">学生</div>
+            <div class="education-card__date">2028 - 至今</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 社交链接 -->
+      <section class="sidebar-section">
+        <div class="social-links-header">
+          <h3 class="sidebar-section__title">联系我</h3>
+          <div class="social-links">
+            <a href="https://github.com/GuyZeus" target="_blank" title="GitHub" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://blog.guyzeus.top" target="_blank" title="博客" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+            </a>
+            <a href="mailto:guyzeus@timxy.com" title="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-10 5L2 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <!-- ===== 主内容区 ===== -->
+    <main class="main-content">
+      <!-- 关于 -->
+      <section id="about" class="about-section" >
+        <h1 class="page-title">关于我</h1>
+
+        <h2>👋 你好，我是 GuyZeus</h2>
+        <p>一个软件技术专业的在读学生，也是个爱折腾的技术博主。喜欢用代码解决问题，也喜欢把踩过的坑写出来分享给别人。</p>
+
+        <h2>🛠️ 技术栈</h2>
+        <div class="skill-category">
+          <p class="skill-category__label">编程语言</p>
+          <div class="skill-category__tags">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <p class="skill-category__label">后端</p>
+          <div class="skill-category__tags">
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">MyBatis</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Redis</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <p class="skill-category__label">前端</p>
+          <div class="skill-category__tags">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Vue.js</span>
+            <span class="skill-tag">Ajax</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <p class="skill-category__label">运维 & 工具</p>
+          <div class="skill-category__tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">1Panel</span>
+            <span class="skill-tag">OpenResty</span>
+            <span class="skill-tag">Nginx</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Linux</span>
+          </div>
+        </div>
+
+        <h2>🚀 正在做</h2>
+        <ul>
+          <li>📚 学习 Java Web 开发，用 Spring Boot 搭学生信息管理系统</li>
+          <li>✍️ 运营个人博客 <a href="https://blog.guyzeus.top" target="_blank" rel="noopener">blog.guyzeus.top</a>，基于 Halo + MySQL + Docker 部署</li>
+          <li>🔧 折腾服务器运维，1Panel / OpenResty 日常</li>
+        </ul>
+
+        <h2>📮 联系我</h2>
+        <div class="contact-links">
+          <div class="project-card">
+            <div class="project-card__name">🌐 博客：<a href="https://blog.guyzeus.top" target="_blank" rel="noopener">blog.guyzeus.top</a></div>
+          </div>
+          <div class="project-card">
+            <div class="project-card__name">💻 GitHub：<a href="https://github.com/GuyZeus" target="_blank" rel="noopener">@GuyZeus</a></div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 文章列表 -->
+      <section>
+        <h1 class="page-title">最新文章</h1>
+
+        <div class="post-list">
+          <article class="post-item">
+            <div class="post-item__date">2026年7月20日</div>
+            <h2 class="post-item__title">
+              <a href="blog/springboot-student-system.html">Spring Boot 学生信息管理系统：从零搭建完整项目</a>
+            </h2>
+            <p class="post-item__excerpt">
+              本文记录了使用 Spring Boot + MyBatis + MySQL 搭建学生信息管理系统的完整过程，包含项目结构设计、RESTful API 编写、前后端分离实践，以及部署到 Docker 容器 <br> 的全部步骤。
+            </p>
+            <div class="post-item__tags">
+              <span class="post-item__tag">Spring Boot</span>
+              <span class="post-item__tag">Java</span>
+              <span class="post-item__tag">Docker</span>
+            </div>
+          </article>
+
+          <article class="post-item">
+            <div class="post-item__date">2026年7月15日</div>
+            <h2 class="post-item__title">
+              <a href="blog/docker-1panel-deploy.html">使用 Docker + 1Panel 部署个人博客实战指南</a>
+            </h2>
+            <p class="post-item__excerpt">
+              详解如何使用 Docker 和 1Panel 面板部署 Halo 博客系统，涵盖 MySQL 配置、容器编排、Nginx 反向代理、SSL 证书配置及域名解析全流程。
+            </p>
+            <div class="post-item__tags">
+              <span class="post-item__tag">Docker</span>
+              <span class="post-item__tag">1Panel</span>
+              <span class="post-item__tag">运维</span>
+            </div>
+          </article>
+
+          <article class="post-item">
+            <div class="post-item__date">2026年7月8日</div>
+            <h2 class="post-item__title">
+              <a href="blog/openresty-nginx-config.html">OpenResty 入门：Nginx 配置与 Lua 脚本实战</a>
+            </h2>
+            <p class="post-item__excerpt">
+              OpenResty 基于 Nginx 与 LuaJIT，让 Web 服务具备动态处理能力。本文介绍 OpenResty 的安装配置、Lua 嵌入 Nginx 的基本用法，以及实际项目中的常见应用场景。
+            </p>
+            <div class="post-item__tags">
+              <span class="post-item__tag">OpenResty</span>
+              <span class="post-item__tag">Nginx</span>
+              <span class="post-item__tag">Lua</span>
+            </div>
+          </article>
+
+          <article class="post-item">
+            <div class="post-item__date">2026年6月28日</div>
+            <h2 class="post-item__title">
+              <a href="blog/java-collections-deep-dive.html">Java 集合框架深度解析：ArrayList vs LinkedList</a>
+            </h2>
+            <p class="post-item__excerpt">
+              ArrayList 和 LinkedList 是 Java 中最常用的两种 List 实现。本文从底层数据结构、时间复杂度、内存占用、扩容机制等维度进行深度对比分析，帮你选择最合适的集合类。
+            </p>
+            <div class="post-item__tags">
+              <span class="post-item__tag">Java</span>
+              <span class="post-item__tag">集合框架</span>
+            </div>
+          </article>
+
+          <article class="post-item">
+            <div class="post-item__date">2026年6月15日</div>
+            <h2 class="post-item__title">
+              <a href="blog/html-css-modern-layout.html">现代 CSS 布局完全指南：Flexbox 与 Grid 实战</a>
+            </h2>
+            <p class="post-item__excerpt">
+              CSS Flexbox 和 Grid 是现代 Web 布局的两大核心工具。本文通过实际案例演示如何用它们实现响应式侧边栏布局、卡片网格、居中对齐等常见布局模式。
+            </p>
+            <div class="post-item__tags">
+              <span class="post-item__tag">CSS</span>
+              <span class="post-item__tag">前端</span>
+              <span class="post-item__tag">布局</span>
+            </div>
+          </article>
+
+          <article class="post-item">
+            <div class="post-item__date">2026年5月30日</div>
+            <h2 class="post-item__title">
+              <a href="blog/springboot-restful-api.html">Spring Boot RESTful API 设计最佳实践</a>
+            </h2>
+            <p class="post-item__excerpt">
+              从 URL 设计到状态码规范，从参数校验到统一异常处理，本文总结了一套 Spring Boot RESTful API 设计的最佳实践方案，包含完整的代码示例。
+            </p>
+            <div class="post-item__tags">
+              <span class="post-item__tag">Spring Boot</span>
+              <span class="post-item__tag">RESTful</span>
+              <span class="post-item__tag">API</span>
+            </div>
+          </article>
+
+          <article class="post-item">
+            <div class="post-item__date">2026年5月12日</div>
+            <h2 class="post-item__title">
+              <a href="blog/git-team-collaboration.html">Git 团队协作工作流：分支策略与冲突解决</a>
+            </h2>
+            <p class="post-item__excerpt">
+              Git 是现代开发不可或缺的版本控制工具。本文介绍 Git Flow、GitHub Flow 等常见分支策略，以及团队协作中合并冲突的解决方法和最佳实践。
+            </p>
+            <div class="post-item__tags">
+              <span class="post-item__tag">Git</span>
+              <span class="post-item__tag">协作</span>
+              <span class="post-item__tag">版本控制</span>
+            </div>
+          </article>
+
+          <article class="post-item">
+            <div class="post-item__date">2026年4月20日</div>
+            <h2 class="post-item__title">
+              <a href="blog/mysql-index-optimization.html">MySQL 索引优化实战：从执行计划到慢查询排查</a>
+            </h2>
+            <p class="post-item__excerpt">
+              数据库性能优化是后端开发的核心技能。本文从 EXPLAIN 执行计划分析入手，讲解索引类型、最左前缀原则、慢查询排查思路，以及实际项目中的优化案例。
+            </p>
+            <div class="post-item__tags">
+              <span class="post-item__tag">MySQL</span>
+              <span class="post-item__tag">数据库</span>
+              <span class="post-item__tag">优化</span>
+            </div>
+          </article>
+        </div>
+
+
+      </section>
+
+      <!-- 页脚 -->
+      <footer class="footer footer--home">
+        <span>&copy; 2026 GuyZeus. 保留所有权利.</span>
+        <span>Powered by HTML &amp; CSS &amp; JS</span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
