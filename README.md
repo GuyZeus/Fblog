@@ -11,14 +11,7 @@ Fblog/
 │   └── style.css                   # 全局样式（CSS 变量主题系统）
 ├── js/
 │   └── main.js                     # 交互逻辑（主题切换 / 侧边栏 / 滚动）
-├── springboot-student-system.html  
-├── docker-1panel-deploy.html      
-├── openresty-nginx-config.html    
-├── java-collections-deep-dive.html 
-├── html-css-modern-layout.html     
-├── springboot-restful-api.html    
-├── git-team-collaboration.html   
-└── mysql-index-optimization.html 
+├── 文章.html 
 ```
 
 ## 功能特性
