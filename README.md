@@ -62,10 +62,7 @@ npx serve .
 
 | 分类 | 涉及技术 |
 |------|----------|
-| 后端 | Java · Spring Boot · MyBatis · RESTful API |
-| 数据库 | MySQL · Redis |
-| 前端 | HTML5 · CSS3 · JavaScript · Vue.js · Ajax |
-| DevOps | Docker · 1Panel · Nginx · OpenResty · Lua · Linux |
+| 前端 | HTML5 · CSS3 · JavaScript|
 | 工具 | Git · 团队协作 · 版本控制 |
 
 ## 许可证
