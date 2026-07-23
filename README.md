@@ -11,14 +11,14 @@ Fblog/
 │   └── style.css                   # 全局样式（CSS 变量主题系统）
 ├── js/
 │   └── main.js                     # 交互逻辑（主题切换 / 侧边栏 / 滚动）
-├── springboot-student-system.html  # Spring Boot 学生管理系统
-├── docker-1panel-deploy.html       # Docker + 1Panel 部署实战
-├── openresty-nginx-config.html     # OpenResty 入门与配置
-├── java-collections-deep-dive.html # Java 集合框架深度解析
-├── html-css-modern-layout.html     # 现代 CSS 布局实战
-├── springboot-restful-api.html     # Spring Boot RESTful API 设计
-├── git-team-collaboration.html     # Git 团队协作工作流
-└── mysql-index-optimization.html   # MySQL 索引优化实战
+├── springboot-student-system.html  
+├── docker-1panel-deploy.html      
+├── openresty-nginx-config.html    
+├── java-collections-deep-dive.html 
+├── html-css-modern-layout.html     
+├── springboot-restful-api.html    
+├── git-team-collaboration.html   
+└── mysql-index-optimization.html 
 ```
 
 ## 功能特性
@@ -51,7 +51,6 @@ npx serve .
 
 项目为纯静态文件，可部署到任意静态托管平台：
 
-- **Nginx** — 将文件放入 `/usr/share/nginx/html/` 并配置域名
 - **GitHub Pages** — 推送至仓库，开启 Pages 服务
 - **Docker** — 使用 `nginx:alpine` 镜像挂载静态文件
 - **1Panel** — 在面板中创建静态站点，上传文件即可
