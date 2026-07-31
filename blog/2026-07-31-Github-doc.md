@@ -1,3 +1,12 @@
+---
+title: Fblog 部署指南（GitHub Pages + Docusaurus）
+date: 2026-07-31
+slug: cloud-mail
+tags: [GitHub Pages,Docusaurus , Github, blog]
+authors: [guyzeus]
+description: 本文档说明如何把基于 **Docusaurus 3.10.2 重构后的 `Fblog` 个人博客部署到 GitHub Pages，并使用自定义域名 `域名`。
+---
+
 # Fblog 部署指南（GitHub Pages + Docusaurus）
 
 本文档说明如何把基于 **Docusaurus 3.10.2** 重构后的 `Fblog` 个人博客部署到 GitHub Pages，并使用自定义域名 `域名`。
