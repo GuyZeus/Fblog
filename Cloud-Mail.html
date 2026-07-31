@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud-Mail：基于Cloudflare Workers搭建私有域名邮箱 &bull; GuyZeus's Blog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<!--
+copy.html：文章页面通用模板
+使用方式：复制本文件，修改内部文字、图片，生成独立文章页面
+-->
+<body class="no-sidebar">
+  <header class="site-header">
+    <a href="index.html" class="site-header__brand">GuyZeus's Blog</a>
+    <nav class="site-header__nav" aria-label="主导航">
+      <a href="index.html" class="site-header__link">首页</a>
+    </nav>
+    <nav class="site-header__actions" aria-label="网站操作">
+      <button class="theme-toggle" id="themeToggle" title="切换主题"><span class="moon-icon">🌙</span><span class="sun-icon">☀️</span></button>
+    </nav>
+  </header>
+
+  <div class="layout">
+<main class="main-content">
+      <article class="article">
+        <a href="index.html" class="back-link">← 返回文章列表</a>
+        <header class="article__header">
+          <h1 class="article__title">Cloud-Mail：基于Cloudflare Workers搭建私有域名邮箱</h1>
+          <div class="article__meta"><span>📅 2026年7月31日</span><span>🏷️ 云服务｜自建邮箱｜Cloudflare</span><span>⏱️ 6分钟阅读</span></div>
+        </header>
+        <div class="article__body">
+          <p>最近完成了 Cloud-Mail 私有邮箱项目的部署调试，依托 Cloudflare 全生态实现零服务器成本搭建专属域名邮箱，项目开源仓库地址：<code>https://github.com/GuyZeus/cloud-mail</code>。</p>
+          <p>区别于第三方企业邮箱、免费邮箱，这套系统完全自主可控，只用一个域名即可批量生成无数个子邮箱，个人注册、验证码接收、日常收发邮件全部自给自足。</p>
+
+          <h2>为什么要自建 Cloud-Mail 邮箱系统？</h2>
+          <p>日常使用公共邮箱存在不少痛点：Gmail、QQ邮箱容易收到垃圾邮件，临时注册网站不想暴露个人主邮箱；付费企业邮箱年费成本高，批量创建别名邮箱限制多。</p>
+          <p>市面上开源邮箱方案大多需要 VPS、邮件服务器、反解析配置，运维复杂。而 Cloud-Mail 基于 Cloudflare Workers 开发，全程无服务器，依靠 Cloudflare 免费额度就能满足个人长期使用需求，完美解决低成本自建邮箱的需求。</p>
+          <p>技术栈分工清晰：Vue3 + Element Plus 做前端页面展示，Hono 作为 Workers 后端框架，搭配 D1 数据库、KV缓存、R2对象存储，整套代码结构规范，二次开发门槛低。</p>
+
+          <h2>Cloud-Mail 核心功能一览</h2>
+          <ul>
+            <li><strong>多域名批量邮箱</strong>：绑定自有域名，无限生成 xxx@你的域名 临时邮箱、长期邮箱；</li>
+            <li><strong>完整收发邮件</strong>：集成 Resend 实现邮件发送，支持附件、图片、群发；收件自动存入系统，支持草稿、星标、归档分类；</li>
+            <li><strong>附件存储</strong>：使用 Cloudflare R2 存储所有邮件附件，无流量扣费；</li>
+            <li><strong>消息推送</strong>：新邮件自动转发至 Telegram 机器人或备用邮箱，实时提醒；</li>
+            <li><strong>管理员后台</strong>：RBAC权限管控，管理所有用户、限制收发额度、查看系统数据；</li>
+            <li><strong>开放API接口</strong>：支持批量创建账号、接口查询邮件，可对接自己的其他项目；</li>
+            <li><strong>安全防护</strong>：内置 Turnstile 人机验证，防止恶意批量注册垃圾账号；</li>
+            <li><strong>个性化自定义</strong>：自定义登录页背景、网站标题、界面透明度；配套ECharts数据看板，查看收发邮件统计数据。</li>
+          </ul>
+
+          <h2>项目整体架构</h2>
+          <h3>1. mail-worker（后端服务）</h3>
+          <p>部署在 Cloudflare Workers，负责邮件接收、接口处理、数据库读写、权限校验；依赖 D1 存储用户与邮件数据，KV做登录缓存，R2存放附件。配置文件 wrangler.toml 统一管理所有云资源绑定信息。</p>
+          <h3>2. mail-vue（前端网页）</h3>
+          <p>Vue3 响应式管理后台，电脑、手机自适应布局，登录后可查看收件箱、发邮件、修改个人配置、查看数据统计，打包后静态资源可通过 GitHub Pages / Cloudflare Pages 托管。</p>
+
+          <h2>完整部署流程</h2>
+          <h3>方案：Cloudflare 原生部署（推荐，完整邮件功能）</h3>
+          <ol>
+            <li>Fork 本仓库到自己 GitHub 账号；</li>
+            <li>Cloudflare 后台创建 D1 数据库、KV命名空间、R2存储桶，记录所有ID；</li>
+            <li>注册 Resend 并验证域名，获取发送邮件 API Key；</li>
+            <li>仓库 Settings → Secrets，填入 Cloudflare 账号ID、API令牌、域名列表、JWT密钥等参数；</li>
+            <li>开启仓库 Actions，自动构建部署 Workers 后端；</li>
+            <li>前端 Vue 打包上传至 Cloudflare Pages，绑定域名访问邮箱后台。</li>
+          </ol>
+
+
+          <h2>部署踩坑记录</h2>
+          <ul>
+            <li><strong>云资源绑定丢失</strong>：项目代码更新重部署后，D1/KV/R2绑定会失效，需要重新在 Workers 设置中绑定资源，执行初始化接口同步数据库；</li>
+            <li><strong>域名邮件解析失败</strong>：域名必须在 Cloudflare 托管，配置对应 Email DNS 记录，否则无法接收外部邮件；</li>
+            <li><strong>静态资源路径异常</strong>：GitHub Pages 二级子仓库部署前端时，打包需要配置二级基础路径，否则页面样式、接口请求全部404；</li>
+            <li><strong>JWT密钥泄露风险</strong>：密钥不能硬编码进代码，必须存放于仓库Secret，否则他人可伪造登录管理员账号；</li>
+            <li><strong>免费额度限制</strong>：Cloudflare 免费版 Workers、D1、R2 有每日限额，大量收发邮件会触发限流，个人轻度使用无压力。</li>
+          </ul>
+
+          <h2>后续迭代规划</h2>
+          <ul>
+            <li>完善多语言国际化，优化中文界面细节；</li>
+            <li>增加邮件过滤规则，自动拦截垃圾邮件；</li>
+            <li>优化移动端交互，适配小屏手机操作；</li>
+            <li>简化一键部署脚本，降低新手配置难度；</li>
+            <li>增加邮件导出、批量删除功能。</li>
+          </ul>
+
+          <h2>写在最后</h2>
+          <p>Cloud-Mail 是继手写博客、A-Nav导航站之后，又一个完全自主部署上线的云原生项目。全程依托免费云平台，不用服务器、不用长期付费，就能拥有完全私有化的邮箱服务，不管是注册各类网站收验证码，还是日常工作邮件都非常实用。</p>
+          <p>如果你厌烦了公共邮箱的广告与隐私泄露问题，又不想花钱购买企业邮箱，不妨 Fork 这份 Cloud-Mail 项目，搭配自己的域名搭建专属私有邮件系统，低成本打造完全属于自己的云服务工具✨。</p>
+        </div>
+        <footer class="article__footer">
+        <div class="article__nav">
+            <a href="anav-intro.html">← 上一篇：自制A-Nav导航站，GitHub Pages免费部署上线</a>
+            <a href=".html">下一篇：</a>
+          </div>
+        </footer>
+      </article>
+
+      <footer class="footer">
+        <span>&copy; 2026 GuyZeus</span>
+        <span>Powered by HTML &amp; CSS &amp; JS</span>
+      </footer>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
