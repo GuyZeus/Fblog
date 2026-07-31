@@ -1,6 +1,6 @@
 # Fblog 部署指南（GitHub Pages + Docusaurus）
 
-本文档说明如何把基于 **Docusaurus 3.10.2** 重构后的 `Fblog` 个人博客部署到 GitHub Pages，并使用自定义域名 `blog.guyzeus.top`。
+本文档说明如何把基于 **Docusaurus 3.10.2** 重构后的 `Fblog` 个人博客部署到 GitHub Pages，并使用自定义域名 `域名`。
 
 ---
 
@@ -57,7 +57,7 @@ git push origin main
 
 1. 打开仓库 **Settings → Pages**。
 2. **Source（构建与部署来源）** 选择 **GitHub Actions**（不要选 “Deploy from a branch”）。
-3. **Custom domain** 填写 `blog.guyzeus.top`：
+3. **Custom domain** 填写 `域名`：
    - 项目已在 `static/CNAME` 写入该域名，GitHub 会自动识别并在每次部署后保留。
    - 首次填写后点击 **Save**，GitHub 会发起域名所有权验证（需在 DNS 处加一条记录，见下一步）。
 
@@ -65,7 +65,7 @@ git push origin main
 
 ## 五、域名 DNS 配置
 
-在域名服务商（如 Cloudflare、阿里云、腾讯云）处，为 `blog.guyzeus.top` 添加以下任一方式：
+在域名服务商（如 Cloudflare、阿里云、腾讯云）处，为 `域名` 添加以下任一方式：
 
 **方式 A：A 记录（推荐）**
 ```
