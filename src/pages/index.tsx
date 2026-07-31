@@ -40,8 +40,8 @@ const contact = [
   {label: '💻 GitHub：', value: '@GuyZeus', href: 'https://github.com/GuyZeus'},
   {
     label: '📬 邮箱：',
-    value: 'GuyZeus@mail.guyzeus.top',
-    href: 'mailto:GuyZeus@mail.guyzeus.top',
+    value: 'GuyZeus@mail.timxy.com',
+    href: 'mailto:GuyZeus@mail.timxy.com',
   },
 ];
 
@@ -146,7 +146,7 @@ export default function Home(): JSX.Element {
           </a>
           <a
             className={styles.socialBtn}
-            href="mailto:guyzeus@timxy.com"
+            href="mailto:guyzeus@mail.timxy.com"
             title="Email"
             aria-label="Email">
             <MailIcon />
