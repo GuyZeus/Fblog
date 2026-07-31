@@ -76,7 +76,7 @@ const posts = [
     excerpt:
       '本文档说明如何把基于 **Docusaurus 3.10.2 重构后的 `Fblog` 个人博客部署到 GitHub Pages，并使用自定义域名 `域名`。',
     tags: ['GitHub Pages', 'Docusaurus', 'GitHub', 'blog'],
-    to: '/blog/fblog-deployment-guide',
+    to: '/blog/Github-doc',
   }
  
 ];
