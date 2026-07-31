@@ -70,6 +70,14 @@ const posts = [
     tags: ['云邮件', '邮箱', 'Cloudflare', '私有邮箱'],
     to: '/blog/cloud-mail',
   },
+  {
+    date: '2026年7月31日',
+    title: 'Fblog 部署指南（GitHub Pages + Docusaurus）',
+    excerpt:
+      '本文档说明如何把基于 **Docusaurus 3.10.2 重构后的 `Fblog` 个人博客部署到 GitHub Pages，并使用自定义域名 `域名`。',
+    tags: ['GitHub Pages', 'Docusaurus', 'GitHub', 'blog'],
+    to: '/blog/fblog-deployment-guide',
+  }
  
 ];
 
