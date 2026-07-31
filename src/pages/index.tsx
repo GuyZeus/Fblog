@@ -15,7 +15,7 @@ const skills = [
 
 const doing = [
   '✍️ 运营个人博客 blog.guyzeus.top，基于 GitHub Pages 部署',
-  '📬 运营 Cloud-Mail 私有邮箱系统 mail.guyzeus.top，依托 Cloudflare 全生态实现零服务器成本搭建专属域名邮箱',
+  '📬 运营 Cloud-Mail 私有邮箱系统mail.timxy.com，依托 Cloudflare 全生态实现零服务器成本搭建专属域名邮箱',
   '🗂️ 运营 A-Nav 导航站 nav.guyzeus.top，纯 HTML 手写，无任何前端框架，依托 GitHub Pages 免费托管',
   '🔧 折腾服务器运维，1Panel / OpenResty 日常',
 ];
