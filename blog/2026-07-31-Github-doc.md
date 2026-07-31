@@ -19,21 +19,20 @@ Fblog/
 └── DEPLOY.md                      # 本文档
 ```
 
-> 旧静态站（index.html / A-Nav.html 等）已删除，内容全部迁移至 Docusaurus。
 
 ---
 
 ## 二、部署前置条件
 
 - 已安装 Node.js 18+（工作流使用 Node 20）。
-- 已拥有 GitHub 仓库 `https://github.com/GuyZeus/Fblog.git`（分支 `main`）。
-- 已配置自定义域名 `blog.guyzeus.top`（或准备改用 GitHub 默认域名）。
+- 已拥有 GitHub 仓库 `https://github.com/名称/Fblog.git`（分支 `main`）。
+- 已配置自定义域名 `域名`（或准备改用 GitHub 默认域名）。
 
 ---
 
 ## 三、本地提交（最关键的一步）
 
-> ⚠️ 当前仓库**仍跟踪旧的静态站文件**（如 `index.html`、`A-Nav.html` 等已提交），
+
 > 而 Docusaurus 源码（`blog/`、`src/`、`docusaurus.config.js` 等）和部署工作流是**未跟踪**状态。
 > 必须先提交，否则 GitHub 上干净的 checkout 缺少 `package.json` / `docusaurus.config.js`，
 > 工作流里的 `npm ci` / `npm run build` 会直接失败。
@@ -70,15 +69,12 @@ git push origin main
 
 **方式 A：A 记录（推荐）**
 ```
-@ / blog   A   185.199.108.153
-@ / blog   A   185.199.109.153
-@ / blog   A   185.199.110.153
-@ / blog   A   185.199.111.153
+
 ```
 
 **方式 B：CNAME 记录**
 ```
-blog   CNAME   guyzeus.github.io
+
 ```
 
 > 若不使用自定义域名，可跳过本节，改用 GitHub 默认地址（见第七节）。
@@ -89,7 +85,7 @@ blog   CNAME   guyzeus.github.io
 
 1. 推送后进入仓库 **Actions** 标签页，查看 `Deploy to GitHub Pages` 工作流。
 2. 包含两个 Job：`build`（构建 Docusaurus）→ `deploy`（发布到 Pages），均变绿即通过。
-3. 浏览器访问 **https://blog.guyzeus.top** 查看站点。
+3. 浏览器访问 **域名** 查看站点。
 
 以后只要向 `main` 分支推送改动（新文章、配置调整等），就会**自动重新构建并部署**，无需手动操作。
 
@@ -100,14 +96,14 @@ blog   CNAME   guyzeus.github.io
 当前 `docusaurus.config.js` 已按自定义域名配置：
 
 ```js
-url: 'https://blog.guyzeus.top',
+url: 'https://域名',
 baseUrl: '/',
 ```
 
 | 场景 | url | baseUrl | 附加操作 |
 | --- | --- | --- | --- |
-| 自定义域名（当前） | `https://blog.guyzeus.top` | `/` | 保留 `static/CNAME` |
-| GitHub 默认域名（项目仓库） | `https://guyzeus.github.io` | `/Fblog/` | 删除 `static/CNAME` |
+| 自定义域名（当前） | `域名` | `/` | 保留 `static/CNAME` |
+| GitHub 默认域名（项目仓库） | `https://名称.github.io` | `/Fblog/` | 删除 `static/CNAME` |
 
 > 注意：`baseUrl` 必须与访问路径一致。用项目仓库路径时若仍写 `/`，站内资源（CSS/JS/图片）会出现 404。
 
