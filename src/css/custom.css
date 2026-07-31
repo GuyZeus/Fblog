@@ -1,0 +1,89 @@
+/**
+ * GuyZeus's Blog — Docusaurus 主题定制
+ * 将原站点的配色 / 明暗主题映射到 Docusaurus(Infima) 的设计变量，
+ * 以保留原站蓝紫渐变与深色模式观感。
+ */
+
+:root {
+  /* 主色（蓝）及其阶梯，对应原 --accent: #4263eb */
+  --ifm-color-primary: #4263eb;
+  --ifm-color-primary-dark: #3453d6;
+  --ifm-color-primary-darker: #2f4dc9;
+  --ifm-color-primary-darkest: #273fae;
+  --ifm-color-primary-light: #5a7aef;
+  --ifm-color-primary-lighter: #6d8af1;
+  --ifm-color-primary-lightest: #93a9f5;
+
+  /* 次要紫，用于渐变强调 */
+  --gz-purple: #7950f2;
+  --gz-accent-gradient: linear-gradient(135deg, #4263eb 0%, #7950f2 100%);
+
+  /* 基础排版 */
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans SC", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", "Fira Code", "Consolas",
+    monospace;
+
+  /* 浅色背景与文字，对应原 :root 变量 */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f8f9fa;
+  --ifm-color-content: #1a1a2e;
+  --ifm-color-content-secondary: #495057;
+  --ifm-color-emphasis-300: #e9ecef;
+  --ifm-color-emphasis-200: #f1f3f5;
+
+  /* 圆角 / 阴影（贴近原站） */
+  --ifm-global-radius: 10px;
+  --gz-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --gz-shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+
+  /* 代码块高亮行 */
+  --docusaurus-highlighted-code-line-bg: rgba(66, 99, 235, 0.08);
+}
+
+/* ===== 深色主题，对应原 [data-theme="dark"] ===== */
+[data-theme="dark"] {
+  --ifm-color-primary: #74c0fc;
+  --ifm-color-primary-dark: #4eaefb;
+  --ifm-color-primary-darker: #3aa3fa;
+  --ifm-color-primary-darkest: #1f8af0;
+  --ifm-color-primary-light: #8fcafd;
+  --ifm-color-primary-lighter: #a5d8ff;
+  --ifm-color-primary-lightest: #cfe8ff;
+
+  --gz-purple: #7950f2;
+  --gz-accent-gradient: linear-gradient(135deg, #4263eb 0%, #7950f2 100%);
+
+  --ifm-background-color: #0f0f17;
+  --ifm-background-surface-color: #1a1a25;
+  --ifm-color-content: #e4e4ef;
+  --ifm-color-content-secondary: #b4b4c4;
+  --ifm-color-emphasis-300: #2a2a38;
+  --ifm-color-emphasis-200: #22222e;
+
+  --gz-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --gz-shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+
+  --docusaurus-highlighted-code-line-bg: rgba(116, 192, 252, 0.12);
+}
+
+/* 顶部导航栏与正文间距优化 */
+.navbar {
+  box-shadow: var(--gz-shadow-md);
+}
+
+/* 文章页标题颜色 */
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  color: var(--ifm-color-content);
+}
+
+/* 行内代码配色贴近原站（浅色 red、深色 red） */
+.markdown code {
+  color: #c92a2a;
+}
+[data-theme="dark"] .markdown code {
+  color: #ff6b6b;
+}

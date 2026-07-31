@@ -1,0 +1,286 @@
+/* GuyZeus's Blog — 首页样式（模块化，避免污染全局） */
+
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 1.5rem;
+}
+
+.avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--gz-accent-gradient);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  box-shadow: var(--gz-shadow-md);
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ifm-color-content);
+  margin-bottom: 0.35rem;
+}
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 0.9rem;
+}
+
+.location svg {
+  width: 15px;
+  height: 15px;
+}
+
+.bio {
+  max-width: 620px;
+  margin: 0 auto 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--ifm-color-content-secondary);
+}
+
+.socials {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.socialBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-content-secondary);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  transition: all 0.2s ease;
+}
+
+.socialBtn:hover {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+}
+
+.socialBtn svg {
+  width: 19px;
+  height: 19px;
+}
+
+.section {
+  max-width: 860px;
+  margin: 2.5rem auto 0;
+  padding: 0 1rem;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ifm-color-content);
+  margin: 0 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.paragraph {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 1rem;
+}
+
+.skillGroup {
+  margin-bottom: 0.9rem;
+}
+
+.skillLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skillTag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-content-secondary);
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  transition: all 0.2s ease;
+}
+
+.skillTag:hover {
+  background: var(--ifm-color-emphasis-200);
+  transform: translateY(-1px);
+}
+
+.doingList {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+}
+
+.doingList li {
+  font-size: 0.95rem;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.doingList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.contactCard {
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  transition: all 0.2s ease;
+}
+
+.contactCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--gz-shadow-md);
+}
+
+.educationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.eduCard {
+  display: block;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  transition: background 0.2s ease;
+  color: inherit;
+}
+
+.eduCard:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.eduSchool {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+}
+
+.eduMajor {
+  font-size: 0.85rem;
+  color: var(--ifm-color-content);
+  margin-top: 0.15rem;
+}
+
+.eduDate {
+  font-size: 0.75rem;
+  color: var(--ifm-color-content-secondary);
+  margin-top: 0.25rem;
+}
+
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.postCard {
+  display: block;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  background: var(--ifm-background-color);
+  transition: all 0.2s ease;
+  color: inherit;
+}
+
+.postCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--gz-shadow-md);
+  transform: translateY(-2px);
+}
+
+.postDate {
+  font-size: 0.78rem;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 0.35rem;
+}
+
+.postTitle {
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ifm-color-content);
+  margin-bottom: 0.4rem;
+}
+
+.postExcerpt {
+  font-size: 0.83rem;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.55;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.postTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.postTag {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(66, 99, 235, 0.1);
+  color: var(--ifm-color-primary);
+}
