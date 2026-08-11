@@ -87,3 +87,20 @@
 [data-theme="dark"] .markdown code {
   color: #ff6b6b;
 }
+
+/* ===== 可访问性与体验增强（优化项） ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 键盘导航焦点可见，提升可访问性 */
+:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* 文本选区配色贴合品牌主色 */
+::selection {
+  background: rgba(66, 99, 235, 0.18);
+  color: var(--ifm-color-content);
+}

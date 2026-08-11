@@ -15,7 +15,7 @@ const skills = [
 
 const doing = [
   '✍️ 运营个人博客 blog.guyzeus.top，基于 GitHub Pages 部署',
-  '📬 运营 Cloud-Mail 私有邮箱系统mail.timxy.com，依托 Cloudflare 全生态实现零服务器成本搭建专属域名邮箱',
+  '📬 运营 Cloud-Mail 私有邮箱系统 mail.timxy.com，依托 Cloudflare 全生态实现零服务器成本搭建专属域名邮箱',
   '🗂️ 运营 A-Nav 导航站 nav.guyzeus.top，纯 HTML 手写，无任何前端框架，依托 GitHub Pages 免费托管',
   '🔧 折腾服务器运维，1Panel / OpenResty 日常',
 ];
@@ -45,26 +45,29 @@ const contact = [
   },
 ];
 
+/* 首页精选文章：与 blog/ 下 4 篇博文保持一致（标题/标签/描述取自各文 front matter）。
+   注意：Docusaurus 3.10.2 的博客数据不进入 globalData，自定义首页无可靠 hook 自动读取，
+   故此处手动维护精选列表，新增文章时请同步更新。 */
 const posts = [
   {
     date: '2026年7月31日',
-    title: 'GitHub Pages 部署博客上线',
+    title: 'Github 部署博客上线',
     excerpt:
-      '最近在折腾博客，终于把博客部署上线了。博客是基于 HTML+CSS+JavaScript 搭建的，使用 GitHub Pages 部署网站。',
-    tags: ['CSS', 'HTML', 'JavaScript', '博客'],
+      '全程靠 HTML + CSS + JavaScript 手写打磨，依托 GitHub Pages 免费托管，从零实现属于自己的专属个人博客。',
+    tags: ['博客', 'HTML', 'CSS', 'JavaScript'],
     to: '/blog/github-pages-blog-online',
   },
   {
     date: '2026年7月31日',
     title: '自制A-Nav导航站，GitHub Pages免费部署上线',
     excerpt:
-      '分享我独立开发的个人导航项目 A-Nav，全程纯 HTML 手写，无任何前端框架，依托 GitHub Pages 免费托管，现在已经可以在线访问使用。',
+      '分享我独立开发的个人导航项目 A-Nav，全程纯 HTML 手写，无任何前端框架，依托 GitHub Pages 免费托管。',
     tags: ['HTML', '导航站', 'GitHub Pages'],
     to: '/blog/a-nav',
   },
   {
     date: '2026年7月31日',
-    title: '云邮件系统设计与实现',
+    title: 'Cloud-Mail：基于Cloudflare Workers搭建私有域名邮箱',
     excerpt:
       '最近完成了 Cloud-Mail 私有邮箱项目的部署调试，依托 Cloudflare 全生态实现零服务器成本搭建专属域名邮箱。',
     tags: ['云邮件', '邮箱', 'Cloudflare', '私有邮箱'],
@@ -74,12 +77,35 @@ const posts = [
     date: '2026年7月31日',
     title: 'Fblog 部署指南（GitHub Pages + Docusaurus）',
     excerpt:
-      '本文档说明如何把基于 **Docusaurus 3.10.2 重构后的 `Fblog` 个人博客部署到 GitHub Pages，并使用自定义域名 `域名`。',
-    tags: ['GitHub Pages', 'Docusaurus', 'GitHub', 'blog'],
+      '本文档说明如何把基于 Docusaurus 3.10.2 重构后的 Fblog 个人博客部署到 GitHub Pages，并使用自定义域名 blog.guyzeus.top。',
+    tags: ['GitHub Pages', 'Docusaurus', 'Github', 'blog'],
     to: '/blog/Github-doc',
-  }
- 
+  },
 ];
+
+/* ===== 结构化数据（JSON-LD），提升 SEO 收录与富媒体展示 ===== */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://blog.guyzeus.top/#website',
+      url: 'https://blog.guyzeus.top',
+      name: "GuyZeus's Blog",
+      description:
+        '分享 Java、Spring Boot、前端、Docker、服务器运维等实践经验与踩坑记录。',
+      inLanguage: 'zh-CN',
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://blog.guyzeus.top/#person',
+      name: 'GuyZeus',
+      url: 'https://blog.guyzeus.top',
+      email: 'guyzeus@mail.timxy.com',
+      sameAs: ['https://github.com/GuyZeus'],
+    },
+  ],
+};
 
 /* ===== 社交图标 ===== */
 
@@ -123,6 +149,12 @@ function PinIcon() {
 export default function Home(): JSX.Element {
   return (
     <main>
+      {/* 结构化数据：搜索引擎 / 富媒体卡片使用 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
+      />
+
       {/* Hero / 个人简介（原侧边栏 + 关于我头部） */}
       <section className={styles.hero}>
         <div className={styles.avatar}>GZ</div>
@@ -222,7 +254,7 @@ export default function Home(): JSX.Element {
         </div>
       </section>
 
-      {/* 最新文章（原首页文章列表） */}
+      {/* 最新文章（精选，与 blog/ 内容保持一致） */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>📝 最新文章</h2>
         <div className={styles.postGrid}>

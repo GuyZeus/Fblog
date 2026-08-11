@@ -9,7 +9,7 @@ description: 最近完成了 Cloud-Mail 私有邮箱项目的部署调试，依�
 
 最近完成了 Cloud-Mail 私有邮箱项目的部署调试，依托 Cloudflare 全生态实现零服务器成本搭建专属域名邮箱，项目开源仓库地址：`https://github.com/GuyZeus/cloud-mail`。
 
-<!-- truncate -->
+{/* truncate */}
 
 区别于第三方企业邮箱、免费邮箱，这套系统完全自主可控，只用一个域名即可批量生成无数个子邮箱，个人注册、验证码接收、日常收发邮件全部自给自足。
 

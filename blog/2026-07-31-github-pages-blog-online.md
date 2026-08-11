@@ -9,7 +9,7 @@ description: 全程靠 HTML + CSS + JavaScript 手写打磨，依托 GitHub Page
 
 折腾了许久的个人博客，今天终于正式部署上线啦！🎉
 
-<!-- truncate -->
+{/* truncate */}
 
 没有使用成熟的博客框架，也没有复杂的搭建流程，全程靠 **HTML + CSS + JavaScript** 手写打磨，依托 GitHub Pages 免费托管，从零实现了属于自己的专属个人博客。从页面布局、样式美化到交互调试、线上部署，一步步踩坑、优化、完善，看到域名成功打开页面的那一刻，所有的熬夜折腾都变得格外有意义。
 
