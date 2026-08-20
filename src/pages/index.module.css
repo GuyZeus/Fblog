@@ -24,8 +24,12 @@
 .name {
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--ifm-color-content);
   margin-bottom: 0.35rem;
+  background: var(--gz-accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .location {
@@ -70,10 +74,11 @@
 }
 
 .socialBtn:hover {
-  background: var(--ifm-color-primary);
+  background: var(--gz-accent-gradient);
   color: #fff;
-  border-color: var(--ifm-color-primary);
+  border-color: transparent;
   transform: translateY(-2px);
+  box-shadow: var(--gz-shadow-md);
 }
 
 .socialBtn svg {
@@ -91,9 +96,20 @@
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--ifm-color-content);
-  margin: 0 0 1rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 44px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gz-accent-gradient);
 }
 
 .paragraph {
@@ -226,30 +242,60 @@
 .postGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
+  gap: 1.25rem;
   margin-top: 0.5rem;
 }
 
 .postCard {
   display: block;
-  padding: 1.1rem 1.2rem;
+  padding: 1.25rem 1.3rem 1.2rem;
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 12px;
   background: var(--ifm-background-color);
   transition: all 0.2s ease;
   color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.postCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gz-accent-gradient);
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
 }
 
 .postCard:hover {
   border-color: var(--ifm-color-primary);
-  box-shadow: var(--gz-shadow-md);
-  transform: translateY(-2px);
+  box-shadow: var(--gz-shadow-lg);
+  transform: translateY(-3px);
+}
+
+.postCard:hover::before {
+  opacity: 1;
 }
 
 .postDate {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.78rem;
   color: var(--ifm-color-content-secondary);
   margin-bottom: 0.35rem;
+}
+
+.postDate::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gz-accent-gradient);
+  flex-shrink: 0;
 }
 
 .postTitle {
@@ -279,8 +325,30 @@
 
 .postTag {
   font-size: 0.7rem;
-  padding: 0.1rem 0.5rem;
-  border-radius: 4px;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
   background: rgba(66, 99, 235, 0.1);
   color: var(--ifm-color-primary);
+  border: 1px solid rgba(66, 99, 235, 0.25);
+}
+
+/* 窄屏（手机）间距微调，避免贴边与拥挤 */
+@media (max-width: 600px) {
+  .hero {
+    padding: 2.25rem 0.75rem 1rem;
+  }
+  .section {
+    padding: 0 0.75rem;
+    margin-top: 2rem;
+  }
+  .postGrid {
+    gap: 1rem;
+  }
+  .postCard {
+    padding: 1rem;
+  }
+  .contactGrid,
+  .educationGrid {
+    grid-template-columns: 1fr;
+  }
 }

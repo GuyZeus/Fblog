@@ -68,9 +68,11 @@
   --docusaurus-highlighted-code-line-bg: rgba(116, 192, 252, 0.12);
 }
 
-/* 顶部导航栏与正文间距优化 */
+/* 顶部导航栏：阴影 + 渐变分隔条，强化品牌辨识度 */
 .navbar {
   box-shadow: var(--gz-shadow-md);
+  border-bottom: 2px solid;
+  border-image: var(--gz-accent-gradient) 1;
 }
 
 /* 文章页标题颜色 */
@@ -103,4 +105,69 @@ html {
 ::selection {
   background: rgba(66, 99, 235, 0.18);
   color: var(--ifm-color-content);
+}
+
+/* ===== 品牌渐变工具类（蓝→紫），供首页与全站复用 ===== */
+.gz-gradient-text {
+  background: var(--gz-accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.gz-gradient-bar {
+  display: inline-block;
+  width: 44px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gz-accent-gradient);
+}
+
+/* 正文链接：hover 时渐变下划线，强化品牌色 */
+.markdown a {
+  text-decoration: none;
+  background-image: var(--gz-accent-gradient);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  padding-bottom: 1px;
+  transition: background-size 0.25s ease;
+}
+.markdown a:hover {
+  background-size: 100% 2px;
+}
+
+/* 评论区容器（Giscus）与正文分隔 */
+.gz-comments {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ifm-toc-border-color);
+}
+
+/* ===== 移动端：文档目录(TOC)与窄屏间距优化 ===== */
+@media (max-width: 996px) {
+  .theme-doc-toc-mobile {
+    margin: 1.5rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: var(--ifm-global-radius);
+    background: var(--ifm-background-surface-color);
+    border: 1px solid var(--ifm-toc-border-color);
+  }
+  .theme-doc-toc-mobile__title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--ifm-toc-border-color);
+  }
+  .theme-doc-toc-mobile .table-of-contents {
+    padding: 0.25rem 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .theme-doc-toc-mobile .table-of-contents__link {
+    display: block;
+    padding: 0.3rem 0;
+  }
 }
