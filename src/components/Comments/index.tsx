@@ -7,9 +7,9 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
  * Giscus 评论区组件（基于 GitHub Discussions）。
  * 仅渲染于单篇博文页（由 BlogPostItem 包装层控制）。
  *
- * ⚠️ 下面的 repoId / categoryId 为占位符，需替换为 giscus.app 为
- *    GuyZeus/Fblog 生成的真实值（见 README / 部署说明）。
- *    在拿到正确 ID 前，构建不受影响，评论区仅显示为空白。
+ * 配置对应 giscus.app 向导输出（仓库 GuyZeus/Fblog，分类 Q&A）。
+ * theme 跟随 Docusaurus 明暗模式（useColorMode），比 preferred_color_scheme
+ * 更贴合站点主题切换。
  */
 export default function Comments(): JSX.Element | null {
   const isBrowser = useIsBrowser();
@@ -23,13 +23,13 @@ export default function Comments(): JSX.Element | null {
     <div className="gz-comments">
       <Giscus
         repo="GuyZeus/Fblog"
-        repoId="__REPO_ID__"
-        category="Announcements"
-        categoryId="__CATEGORY_ID__"
+        repoId="R_kgDOTgL5sg"
+        category="Q&A"
+        categoryId="DIC_kwDOTgL5ss4DDxsh"
         mapping="pathname"
         reactionsEnabled="1"
         emitMetadata="0"
-        inputPosition="top"
+        inputPosition="bottom"
         theme={colorMode === 'dark' ? 'transparent_dark' : 'light'}
         lang="zh-CN"
         loading="lazy"
