@@ -1,4 +1,5 @@
 import Link from '@docusaurus/Link';
+import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
 /* ===== 首页数据（保留原 index.html / 侧边栏全部内容） ===== */
@@ -54,7 +55,7 @@ const posts = [
     title: 'Github 部署博客上线',
     excerpt:
       '全程靠 HTML + CSS + JavaScript 手写打磨，依托 GitHub Pages 免费托管，从零实现属于自己的专属个人博客。',
-    tags: ['博客', 'HTML', 'CSS', 'JavaScript'],
+    tags: ['博客', 'GitHub Pages', 'HTML'],
     to: '/blog/github-pages-blog-online',
   },
   {
@@ -62,7 +63,7 @@ const posts = [
     title: '自制A-Nav导航站，GitHub Pages免费部署上线',
     excerpt:
       '分享我独立开发的个人导航项目 A-Nav，全程纯 HTML 手写，无任何前端框架，依托 GitHub Pages 免费托管。',
-    tags: ['HTML', '导航站', 'GitHub Pages'],
+    tags: ['导航站', 'GitHub Pages', 'HTML'],
     to: '/blog/a-nav',
   },
   {
@@ -70,7 +71,7 @@ const posts = [
     title: 'Cloud-Mail：基于Cloudflare Workers搭建私有域名邮箱',
     excerpt:
       '最近完成了 Cloud-Mail 私有邮箱项目的部署调试，依托 Cloudflare 全生态实现零服务器成本搭建专属域名邮箱。',
-    tags: ['云邮件', '邮箱', 'Cloudflare', '私有邮箱'],
+    tags: ['私有邮箱', 'Cloudflare'],
     to: '/blog/cloud-mail',
   },
   {
@@ -78,7 +79,7 @@ const posts = [
     title: 'Fblog 部署指南（GitHub Pages + Docusaurus）',
     excerpt:
       '本文档说明如何把基于 Docusaurus 3.10.2 重构后的 Fblog 个人博客部署到 GitHub Pages，并使用自定义域名 blog.guyzeus.top。',
-    tags: ['GitHub Pages', 'Docusaurus', 'Github', 'blog'],
+    tags: ['GitHub Pages', 'Docusaurus'],
     to: '/blog/Github-doc',
   },
 ];
@@ -148,7 +149,8 @@ function PinIcon() {
 
 export default function Home(): JSX.Element {
   return (
-    <main>
+    <Layout>
+      <main>
       {/* 结构化数据：搜索引擎 / 富媒体卡片使用 */}
       <script
         type="application/ld+json"
@@ -274,6 +276,7 @@ export default function Home(): JSX.Element {
           ))}
         </div>
       </section>
-    </main>
+      </main>
+    </Layout>
   );
 }

@@ -2,7 +2,7 @@
 title: Cloud-Mail：基于Cloudflare Workers搭建私有域名邮箱
 date: 2026-07-31
 slug: cloud-mail
-tags: [云邮件, 邮箱, Cloudflare, 私有邮箱]
+tags: [私有邮箱, Cloudflare]
 authors: [guyzeus]
 description: 最近完成了 Cloud-Mail 私有邮箱项目的部署调试，依托 Cloudflare 全生态实现零服务器成本搭建专属域名邮箱。
 ---

@@ -2,7 +2,7 @@
 title: Github 部署博客上线
 date: 2026-07-31
 slug: github-pages-blog-online
-tags: [博客, HTML, CSS, JavaScript]
+tags: [博客, GitHub Pages, HTML]
 authors: [guyzeus]
 description: 全程靠 HTML + CSS + JavaScript 手写打磨，依托 GitHub Pages 免费托管，从零实现属于自己的专属个人博客。
 ---

@@ -171,3 +171,55 @@ html {
     padding: 0.3rem 0;
   }
 }
+
+/* ===== 博客标签页（/blog/tags）美化 =====
+   用稳定属性选择器 a[rel="tag"]，避免依赖 Docusaurus 哈希类名（版本升级不易失效） */
+ul:has(> li > a[rel='tag']) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 0.8rem;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+/* 标签胶囊：品牌主色描边 + 圆角 + hover 渐变填充 */
+a[rel='tag'] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+a[rel='tag']:hover {
+  border-color: transparent;
+  background: linear-gradient(135deg, #4263eb, #7950f2);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(66, 99, 235, 0.28);
+}
+/* 计数徽标 */
+a[rel='tag'] > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.3rem;
+  height: 1.3rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+a[rel='tag']:hover > span {
+  background: rgba(255, 255, 255, 0.28);
+  color: #fff;
+}
