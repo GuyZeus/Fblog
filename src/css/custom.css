@@ -223,3 +223,14 @@ a[rel='tag']:hover > span {
   background: rgba(255, 255, 255, 0.28);
   color: #fff;
 }
+
+/* ===== 导航栏布局：品牌在左，「关于 / 博客」居中，GitHub 在右 =====
+   Docusaurus 原生导航项只有 left / right 两档，没有 center 位置，
+   这里用 flex 让左侧导航项组占据中间空间并居中（仅桌面端生效，
+   移动端导航项折叠进汉堡菜单，不受影响） */
+@media (min-width: 997px) {
+  .navbar__items--left {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
