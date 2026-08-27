@@ -116,7 +116,6 @@ const config = {
         items: [
           {to: '/', label: '关于', position: 'left'},
           {to: '/blog', label: '博客', position: 'left'},
-          {to: '/blog/tags', label: '标签', position: 'left'},
           {
             href: 'https://github.com/GuyZeus',
             label: 'GitHub',
@@ -131,7 +130,6 @@ const config = {
             title: '博客',
             items: [
               {label: '全部文章', to: '/blog'},
-              {label: '标签', to: '/blog/tags'},
             ],
           },
           {
