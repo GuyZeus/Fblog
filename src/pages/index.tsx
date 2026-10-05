@@ -16,7 +16,6 @@ const skills = [
 
 const doing = [
   '✍️ 运营个人博客 blog.guyzeus.top，基于 GitHub Pages 部署',
-  '📬 运营 Cloud-Mail 私有邮箱系统 mail.timxy.com，依托 Cloudflare 全生态实现零服务器成本搭建专属域名邮箱',
   '🗂️ 运营 A-Nav 导航站 nav.guyzeus.top，纯 HTML 手写，无任何前端框架，依托 GitHub Pages 免费托管',
   '🔧 折腾服务器运维，1Panel / OpenResty 日常',
 ];
@@ -39,14 +38,9 @@ const education = [
 const contact = [
   {label: '🌐 博客：', value: 'blog.guyzeus.top', href: 'https://blog.guyzeus.top'},
   {label: '💻 GitHub：', value: '@GuyZeus', href: 'https://github.com/GuyZeus'},
-  {
-    label: '📬 邮箱：',
-    value: 'GuyZeus@mail.timxy.com',
-    href: 'mailto:GuyZeus@mail.timxy.com',
-  },
 ];
 
-/* 首页精选文章：与 blog/ 下 4 篇博文保持一致（标题/标签/描述取自各文 front matter）。
+/* 首页精选文章：与 blog/ 下 3 篇博文保持一致（标题/标签/描述取自各文 front matter）。
    注意：Docusaurus 3.10.2 的博客数据不进入 globalData，自定义首页无可靠 hook 自动读取，
    故此处手动维护精选列表，新增文章时请同步更新。 */
 const posts = [
@@ -65,14 +59,6 @@ const posts = [
       '分享我独立开发的个人导航项目 A-Nav，全程纯 HTML 手写，无任何前端框架，依托 GitHub Pages 免费托管。',
     tags: ['导航站', 'GitHub Pages', 'HTML'],
     to: '/blog/a-nav',
-  },
-  {
-    date: '2026年7月31日',
-    title: 'Cloud-Mail：基于Cloudflare Workers搭建私有域名邮箱',
-    excerpt:
-      '最近完成了 Cloud-Mail 私有邮箱项目的部署调试，依托 Cloudflare 全生态实现零服务器成本搭建专属域名邮箱。',
-    tags: ['私有邮箱', 'Cloudflare'],
-    to: '/blog/cloud-mail',
   },
   {
     date: '2026年7月31日',
@@ -102,7 +88,6 @@ const jsonLd = {
       '@id': 'https://blog.guyzeus.top/#person',
       name: 'GuyZeus',
       url: 'https://blog.guyzeus.top',
-      email: 'guyzeus@mail.timxy.com',
       sameAs: ['https://github.com/GuyZeus'],
     },
   ],
@@ -123,15 +108,6 @@ function BlogIcon() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
       <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-    </svg>
-  );
-}
-
-function MailIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <rect x="2" y="4" width="20" height="16" rx="2" />
-      <path d="m22 7-10 5L2 7" />
     </svg>
   );
 }
@@ -187,13 +163,6 @@ export default function Home(): JSX.Element {
             aria-label="博客">
             <BlogIcon />
           </a>
-          <a
-            className={styles.socialBtn}
-            href="mailto:guyzeus@mail.timxy.com"
-            title="Email"
-            aria-label="Email">
-            <MailIcon />
-          </a>
         </div>
       </section>
 
@@ -246,11 +215,7 @@ export default function Home(): JSX.Element {
           {contact.map((c) => (
             <a className={styles.contactCard} href={c.href} key={c.value}>
               {c.label}
-              {c.href.startsWith('mailto:') ? (
-                c.value
-              ) : (
-                <span style={{fontWeight: 400}}>{c.value}</span>
-              )}
+              <span style={{fontWeight: 400}}>{c.value}</span>
             </a>
           ))}
         </div>

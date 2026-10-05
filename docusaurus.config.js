@@ -136,7 +136,6 @@ const config = {
             title: '我的项目',
             items: [
               {label: 'A-Nav 导航站', href: 'https://nav.guyzeus.top/'},
-              {label: 'Cloud-Mail 私有邮箱', href: 'https://mail.timxy.com'},
               {label: 'GitHub', href: 'https://github.com/GuyZeus'},
             ],
           },
